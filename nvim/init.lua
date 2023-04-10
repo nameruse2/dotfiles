@@ -30,8 +30,6 @@ vim.opt.rtp:prepend(lazypath)
 --  You can configure plugins using the `config` key
 --  You can also configure plugins after the setup call,
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
-
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -67,7 +65,6 @@ require('lazy').setup({
   { -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
-      -- See `:help gitsigns.txt`
       signs = {
         add = { text = '+' },
         change = { text = '~' },
@@ -116,19 +113,14 @@ require('lazy').setup({
 
   {
     'nvim-telescope/telescope-fzf-native.nvim',
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
     build = 'make',
     cond = function()
       return vim.fn.executable 'make' == 1
     end,
   },
 
-  { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
+  { 'nvim-treesitter/nvim-treesitter', -- Highlight, edit, and navigate code
+    dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
@@ -157,7 +149,6 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
--- See `:help telescope.builtin`
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
