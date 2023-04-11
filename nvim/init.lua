@@ -1,9 +1,6 @@
 --[[
-  If you don't know anything about Lua, I recommend taking some time to read through
-  a guide. One possible example:
-  - https://learnxinyminutes.com/docs/lua/
-
-  And then you can explore or search through `:help lua-guide`
+  - https://learnxinyminutes.com/docs/lua/ is helpful.
+  - you can explore or search through `:help lua-guide`
 --]]
 
 -- Set <space> as the leader key
@@ -30,9 +27,6 @@ vim.opt.rtp:prepend(lazypath)
 --  You can configure plugins using the `config` key
 --  You can also configure plugins after the setup call,
 require('lazy').setup({
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
 
   'tpope/vim-sleuth',
 
@@ -132,7 +126,6 @@ require('lazy').setup({
 
 require "keymaps"  -- Imports keymappings from lua/keymaps.lua
 require "options" -- Imports options from lua/options.lua
-require "toggleterm"
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -216,12 +209,6 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>ee', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
