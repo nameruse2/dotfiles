@@ -1,5 +1,6 @@
 #!/bin/bash
 
-ln -sf /home/user1/dotfiles/nvim/ /home/user1/.config
-ln -sf /home/user1/dotfiles/zsh/.zshrc /home/user1/.config/zsh/.zshrc
-ln -sf /home/user1/dotfiles/zsh/.zshenv /home/user1/.zshenv
+ln -sf $HOME/dotfiles/nvim/ $HOME/.config
+ln -sf $HOME/dotfiles/zsh/.zshrc $HOME/.config/zsh/.zshrc
+ln -sf $HOME/dotfiles/zsh/.zshenv $HOME/.zshenv
+#TODO move oh my zsh folder if it exists
