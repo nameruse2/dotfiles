@@ -1,60 +1,25 @@
+
+require "keymaps"  -- Imports keymappings from lua/keymaps.lua
+require "options" -- Options settings
+require "lazy-config"
+require "whichkey"
+require "bufferline-config"
+require "lualine-config"
+require "hop-config"
+require "nvim-tree-config"
+require "telescope-config"
+require "alpha-config"
+require "treesitter-config"
+require "lsp-config"
+require "toggleterm-config"
+require "autopairs-config"
+require "undotree-config"
+require "indentline-config"
+
+
 --[[
-  - https://learnxinyminutes.com/docs/lua/ is helpful.
-  - you can explore or search through `:help lua-guide`
---]]
-
--- Set <space> as the leader key
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Install package manager
---    `:help lazy.nvim.txt` for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
-end
-vim.opt.rtp:prepend(lazypath)
-
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key
---  You can also configure plugins after the setup call,
-require('lazy').setup({
 
   'tpope/vim-sleuth',
-
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
-  { -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
-    },
-  },
-
-  { -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  },
-
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
 
   { -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -69,40 +34,16 @@ require('lazy').setup({
     },
   },
 
-  { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
 
-  { -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
 
-  { -- Add indentation guides even on blank lines
+  { 
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
     opts = {
       char = '┊',
       show_trailing_blankline_indent = false,
     },
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
-  -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   {
@@ -113,22 +54,14 @@ require('lazy').setup({
     end,
   },
 
-  { 'nvim-treesitter/nvim-treesitter', -- Highlight, edit, and navigate code
+  { 'nvim-treesitter/nvim-treesitter', 
     dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
 
-  -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/plugins.lua`
-  { import = 'plugins' },
-}, {})
 
-require "keymaps"  -- Imports keymappings from lua/keymaps.lua
-require "options" -- Imports options from lua/options.lua
-
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
     mappings = {
@@ -140,11 +73,10 @@ require('telescope').setup {
   },
 }
 
--- Enable telescope fzf native, if installed
+ Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
 
--- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
@@ -169,7 +101,6 @@ require('nvim-treesitter.configs').setup {
       enable = true,
       lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ['aa'] = '@parameter.outer',
         ['ia'] = '@parameter.inner',
         ['af'] = '@function.outer',
@@ -180,18 +111,8 @@ require('nvim-treesitter.configs').setup {
     },
     move = {
       enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
+      set_jumps = true, 
       goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
       },
       goto_previous_end = {
         ['[M'] = '@function.outer',
@@ -346,6 +267,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+--]]
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
