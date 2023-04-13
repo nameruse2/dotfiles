@@ -18,6 +18,7 @@ require "indentline-config"
 require "telekasten-config"
 require "neorg-config"
 require "orgmode-config"
+require "mkdnflow-config"
 
 
 --[[

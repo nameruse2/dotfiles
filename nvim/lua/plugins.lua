@@ -121,4 +121,5 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {'nvim-orgmode/orgmode',},
+    {'jakewvincent/mkdnflow.nvim'},
 }

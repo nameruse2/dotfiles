@@ -79,6 +79,8 @@ local opts = {
 }
 
 local mappings = {
+    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find in file (grep)"},
+    [","] = { "<cmd>Telescope buffers<cr>", "Switch buffer"},
     ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
     ["k"] = { "<cmd>bdelete<CR>", "Kill Buffer" },  -- Close current file
     ["p"] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
@@ -88,35 +90,35 @@ local mappings = {
     ["m"] = { "<cmd>Mason<cr>", "Mason UI for Lsp" },
     ["r"] = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Reformat Code" },
     ["u"] = { "<cmd>lua require('undotree').toggle()<CR>", "Undo-Tree" },
-    l = {
-        name = "LSP",
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        S = {
+    ["l"] = {
+            name = "[L]SP",
+            i = { "<cmd>LspInfo<cr>", "Info" },
+            r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+            s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+            S = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
             "Workspace Symbols",
         },
     },
     f = {
-        name = "File Search",
+        name = "[F]ind",
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find files" },
-        t = { "<cmd>Telescope live_grep <cr>", "Find Text Pattern In All Files" },
+        g = { "<cmd>Telescope live_grep <cr>", "Find Text Pattern In All Files" },
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     },
 
     s = {
         name = "Search",
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         r = { "<cmd>Telescope registers<cr>", "Registers" },
-        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         c = { "<cmd>Telescope commands<cr>", "Commands" },
     },
         --Toggle Term
     t = {
-        name = "Terminal",
+        name = "[T]erminal",
         n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" }, -- Node Terminal
         t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" }, -- (Optional) Htop, If you have htop in linux
         p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" }, -- Python Terminal
@@ -125,6 +127,16 @@ local mappings = {
         -- Play with size according to your needs.
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" }, -- Horizontal Terminal,
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" }, -- Vertical Terminal
+    },
+
+    z = {
+        name = "Telekasten",
+        f = { "<cmd>Telekasten find_notes<CR>", "Find notes" },
+        g = { "<cmd>Telekasten search_notes<CR>", "Grep notes" },
+        d = { "<cmd>Telekasten goto_today<CR>", "Goto today" },
+        n = { "<cmd>Telekasten new_note<CR>", "New note" },
+        w = { "<cmd>Telekasten goto_thisweek<CR>", "Goto this week"},
+        t = { "<cmd>Telekasten toggle_todo<CR>", "Toggle todo"},
     },
 }
 
