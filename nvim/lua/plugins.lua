@@ -111,4 +111,14 @@ return {
     {
         "HiPhish/nvim-ts-rainbow2",
     },
+
+    {
+        'renerocksai/telekasten.nvim',
+        dependencies = {'nvim-telescope/telescope.nvim'}
+    },
+    {
+        'nvim-neorg/neorg',
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    {'nvim-orgmode/orgmode',},
 }

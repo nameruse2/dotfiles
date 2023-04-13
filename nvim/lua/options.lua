@@ -42,7 +42,8 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = true -- Line wrap
-
+opt.foldmethod="expr"
+opt.foldexpr="nvim_treesitter#foldexpr()"
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 

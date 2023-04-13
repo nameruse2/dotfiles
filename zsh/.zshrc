@@ -26,7 +26,7 @@ zstyle ':omz:update' frequency 13 # set frequency of update checks
 ENABLE_CORRECTION="true" # enable command autocorrection
 
 # Which plugins would you like to load?
-plugins=(git)
+plugins=(git taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 

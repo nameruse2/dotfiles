@@ -1,7 +1,7 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
   -- Add a language of your choice
-  ensure_installed = {"cpp", "python", "lua", "java", "javascript", },
+  ensure_installed = {"cpp", "python", "lua", "java", "javascript", "org",},
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
@@ -10,7 +10,7 @@ configs.setup {
     additional_vim_regex_highlighting = true,
 
   },
-  indent = { enable = true, disable = { "yaml" } },
+  indent = { enable = true },
     rainbow = {
       enable = true,
       -- list of languages you want to disable the plugin for
