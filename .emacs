@@ -23,12 +23,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inhibit-startup-message t) ;; Don't show the splash screen
 (global-display-line-numbers-mode 1) ;; Display line numbers in every buffer
-(scroll-bar-mode -1)
+(when (display-graphic-p) (scroll-bar-mode -1))
 (tool-bar-mode -1)
 (tooltip-mode -1)
 ;;(global-visual-line-mode 1) ;; Line wrapping
 (setq ring-bell-function 'ignore)
-(set-fringe-mode 10) ;; Breathing room
+(when (display-graphic-p) (set-fringe-mode 10)) ;; Breathing room
 
 (set-face-attribute 'default nil :font "Source Code Pro") ;; Set font
 
@@ -109,14 +109,14 @@
       org-agenda-include-deadlines t
       org-agenda-block-separator #x2501
       org-agenda-compact-blocks t
-      org-agenda-files '("~/Documents/notes/")
+      org-agenda-files '("~/notes/")
       org-log-done 'time
       org-refile-targets '((org-agenda-files :maxlevel . 5))
       org-refile-use-outline-path 'file
       org-log-into-drawer t
       org-capture-templates
-      '(("n" "note" entry (file "~/Documents/notes/Inbox.org") "" nil nil)
-	("t" "todo" entry (file "~/Documents/notes/Inbox.org") "* TODO %^{Title}" )))
+      '(("n" "note" entry (file "~/notes/Inbox.org") "" nil nil)
+	("t" "todo" entry (file "~/notes/Inbox.org") "* TODO %^{Title}" )))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

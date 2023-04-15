@@ -18,3 +18,4 @@ export SAVEHIST=10000
 
 # Path to your oh-my-zsh installation.
 export ZSH="$XDG_DATA_HOME/oh-my-zsh"
+
