@@ -14,7 +14,7 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
-(require 'use-package)
+(require 'use-package)			
 (setq use-package-always-ensure t)
 
 
@@ -26,7 +26,7 @@
 (when (display-graphic-p) (scroll-bar-mode -1))
 (tool-bar-mode -1)
 (tooltip-mode -1)
-;;(global-visual-line-mode 1) ;; Line wrapping
+(setq-default word-wrap t) ;; Line wrapping
 (setq ring-bell-function 'ignore)
 (when (display-graphic-p) (set-fringe-mode 10)) ;; Breathing room
 
@@ -37,6 +37,24 @@
 ;; Packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package command-log-mode)
+
+;; Theme
+(use-package spacemacs-theme
+  :init (load-theme 'spacemacs-dark t))
+
+;; Better Modeline
+;; use `M-x all-the-icons-install-fonts` first install
+(use-package all-the-icons)
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
+
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
 
 (use-package ivy
   :diminish
@@ -99,6 +117,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c e") 'neotree-toggle)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -110,7 +129,9 @@
       org-agenda-block-separator #x2501
       org-agenda-compact-blocks t
       org-agenda-files '("~/notes/")
+      org-agenda-custom-commands '(("w" todo "WAITING" nil))
       org-log-done 'time
+      org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "DONE(d)"))
       org-refile-targets '((org-agenda-files :maxlevel . 5))
       org-refile-use-outline-path 'file
       org-log-into-drawer t
@@ -134,7 +155,8 @@
       (file "~/Documents/notes/Inbox.org")
       "* TODO %^{Title}")) t)
  '(package-selected-packages
-   '(doom ewal-doom-themes rg doom-themes org-bullets helm-fuzzy-find json-mode helpful ivy-rich rainbow-delimiters command-log-mode ivy notmuch fzf helm zenburn-theme writegood-mode which-key vertico use-package spacemacs-theme solarized-theme python neotree material-theme markdown-mode gruvbox-theme dracula-theme deadgrep counsel better-defaults anti-zenburn-theme)))
+   '(company rg helm-fuzzy-find json-mode helpful ivy-rich command-log-mode ivy notmuch fzf helm writegood-mode which-key vertico python neotree markdown-mode deadgrep counsel better-defaults))
+ '(warning-suppress-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -142,4 +164,4 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load-theme 'spacemacs-dark) ;; Set theme
+;; (load-theme 'spacemacs-dark) ;; Set theme
