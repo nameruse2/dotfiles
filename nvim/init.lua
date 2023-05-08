@@ -23,6 +23,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
+  'kdheepak/lazygit.nvim',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
