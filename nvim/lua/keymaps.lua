@@ -36,3 +36,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "files"})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "grep"})
+vim.keymap.set('n', '<leader>b', builtin.buffers, {desc = "Buffers"})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "help"})
+vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {desc = "recent"})
