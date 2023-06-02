@@ -1,4 +1,3 @@
-
 let mapleader = " " " map leader to Space
 " Bootstrap vim-plug.
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -42,7 +41,7 @@ let g:which_key_map.c = { 'name' : '+commenter' }
 
 " Load some standard configs.
 set encoding=UTF-8
-set clipboard=unnamed
+set clipboard=unnamedplus
 set number
 set ignorecase
 set smartcase

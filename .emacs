@@ -150,6 +150,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("2dd4951e967990396142ec54d376cced3f135810b2b69920e77103e0bcedfba9" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
+ '(elfeed-feeds '("https://krebsonsecurity.com/feed/"))
  '(ispell-dictionary nil)
  '(org-capture-templates
    '(("n" "note" entry
@@ -159,7 +160,7 @@
       (file "~/Documents/notes/Inbox.org")
       "* TODO %^{Title}")) t)
  '(package-selected-packages
-   '(evil company rg helm-fuzzy-find json-mode helpful ivy-rich command-log-mode ivy notmuch fzf helm writegood-mode which-key vertico python neotree markdown-mode deadgrep counsel better-defaults))
+   '(elfeed evil company rg helm-fuzzy-find json-mode helpful ivy-rich command-log-mode ivy notmuch fzf helm writegood-mode which-key vertico python neotree markdown-mode deadgrep counsel better-defaults))
  '(warning-suppress-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

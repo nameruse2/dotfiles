@@ -27,4 +27,6 @@ alias notes-pull="rclone sync mega:notes ~/Documents/notes -P"
 alias notes-push="rclone sync ~/Documents/notes mega:notes -P"
 alias myip="curl icanhazip.com"
 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+source ~/dotfiles/zsh/completion.zsh
+source ~/dotfiles/zsh/key-bindings.zsh
+
