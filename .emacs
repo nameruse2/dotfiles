@@ -21,18 +21,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic quality of life improvements
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-visual-line-mode 1)
 (setq inhibit-startup-message t) ;; Don't show the splash screen
 (global-display-line-numbers-mode 1) ;; Display line numbers in every buffer
 (when (display-graphic-p) (scroll-bar-mode -1))
 (tool-bar-mode -1)
 (tooltip-mode -1)
+(menu-bar-mode -1)
 (setq-default word-wrap t) ;; Line wrapping
 (setq ring-bell-function 'ignore)
 (when (display-graphic-p) (set-fringe-mode 10)) ;; Breathing room
 
 (set-face-attribute 'default nil :font "Source Code Pro") ;; Set font
+(if (window-system)
+    (set-frame-font "Source Code Pro 10"))
 
-
+;; Y or N instead of needing yes or no
+(fset 'yes-or-no-p 'y-or-n-p)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -48,7 +53,6 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
-
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
@@ -106,7 +110,7 @@
 
 
 ;; Set up file handling
-(setq-default truncate-lines t)
+;; (setq-default truncate-lines t)
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 (setq delete-old-versions t
   kept-new-versions 6
@@ -128,7 +132,7 @@
       org-agenda-include-deadlines t
       org-agenda-block-separator #x2501
       org-agenda-compact-blocks t
-      org-agenda-files '("~/notes/")
+      org-agenda-files '("~/org/")
       org-agenda-custom-commands '(("w" todo "WAITING" nil))
       org-log-done 'time
       org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "DONE(d)"))
@@ -146,6 +150,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("2dd4951e967990396142ec54d376cced3f135810b2b69920e77103e0bcedfba9" "944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default))
+ '(elfeed-feeds '("https://krebsonsecurity.com/feed/"))
  '(ispell-dictionary nil)
  '(org-capture-templates
    '(("n" "note" entry
@@ -155,7 +160,7 @@
       (file "~/Documents/notes/Inbox.org")
       "* TODO %^{Title}")) t)
  '(package-selected-packages
-   '(company rg helm-fuzzy-find json-mode helpful ivy-rich command-log-mode ivy notmuch fzf helm writegood-mode which-key vertico python neotree markdown-mode deadgrep counsel better-defaults))
+   '(elfeed evil company rg helm-fuzzy-find json-mode helpful ivy-rich command-log-mode ivy notmuch fzf helm writegood-mode which-key vertico python neotree markdown-mode deadgrep counsel better-defaults))
  '(warning-suppress-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
