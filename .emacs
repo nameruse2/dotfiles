@@ -1,3 +1,4 @@
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Define and initialise package repositories
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -27,14 +28,14 @@
 (when (display-graphic-p) (scroll-bar-mode -1))
 (tool-bar-mode -1)
 (tooltip-mode -1)
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
 (setq-default word-wrap t) ;; Line wrapping
 (setq ring-bell-function 'ignore)
 (when (display-graphic-p) (set-fringe-mode 10)) ;; Breathing room
 
 (set-face-attribute 'default nil :font "Source Code Pro") ;; Set font
 (if (window-system)
-    (set-frame-font "Source Code Pro 10"))
+    (set-frame-font "Source Code Pro 12"))
 
 ;; Y or N instead of needing yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -44,8 +45,8 @@
 (use-package command-log-mode)
 
 ;; Theme
-(use-package spacemacs-theme
-  :init (load-theme 'spacemacs-dark t))
+(use-package zenburn-theme
+  :init (load-theme 'zenburn t))
 
 ;; Better Modeline
 ;; use `M-x all-the-icons-install-fonts` first install

@@ -20,12 +20,12 @@ return {
     },
   },
 
-  { 'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
-  },
+ -- { 'lukas-reineke/indent-blankline.nvim',
+   -- opts = {
+     -- char = '┊',
+      --show_trailing_blankline_indent = false,
+    --},
+  --},
 
   {'akinsho/bufferline.nvim',
     version = "*",
