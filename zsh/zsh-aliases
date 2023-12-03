@@ -1,0 +1,9 @@
+
+##########
+# Note aliases
+##########
+alias notes-pull="rclone sync mega:notes ~/Documents/notes -P"
+alias notes-push="rclone sync ~/Documents/notes mega:notes -P"
+
+
+alias myip="curl icanhazip.com"

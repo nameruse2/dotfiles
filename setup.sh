@@ -25,6 +25,7 @@ ln -sf $PWD/nvim/ $HOME/.config
 ##########
 ln -sf $PWD/zsh/.zshrc $HOME/.config/zsh/.zshrc
 ln -sf $PWD/zsh/.zshenv $HOME/.zshenv
+ln -sf $PWD/zsh/zsh-aliases $HOME/.config/zsh/zsh-aliases
 
 ##########
 #EMACS
