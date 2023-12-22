@@ -1,4 +1,5 @@
 let mapleader = " " " map leader to Space
+let maplocalleader=","
 " Bootstrap vim-plug.
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -8,6 +9,7 @@ endif
 
 " Load plugins
 call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'freitass/todo.txt-vim'
@@ -18,8 +20,6 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
-Plug 'valloric/youcompleteme'
-Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'easymotion/vim-easymotion'
 Plug 'luochen1990/rainbow'
@@ -103,17 +103,9 @@ if executable('fd')
 endif
 
 " example
-let g:nv_search_paths = ['~/notes']
+let g:nv_search_paths = ['~/Documents/notes/']
 
 nnoremap <leader>e :NERDTreeToggle<CR>
-
-" Orgmode ToDoo settings
-let g:dotoo#parser#todo_keywords = ["TODO", "WAITING", "DONE"]
-let g:dotoo#agenda#files = ['~/notes/*.org']
-let g:dotoo#capture#refile = expand('~/notes/Inbox.org')
-let g:dotoo#agenda_views#agenda#span = 'week'
-let g:org_agenda_files=['~/notes/*.org']
-let g:dotoo#agenda#warning_days = '0d'
 
 " Source custom configs (not under version control).
 if filereadable(glob("~/.vimrc.local"))

@@ -162,7 +162,7 @@
       (file "~/Documents/notes/Inbox.org")
       "* TODO %^{Title}")) t)
  '(package-selected-packages
-   '(olivetti modus-themes vterm elfeed evil company rg helm-fuzzy-find json-mode helpful ivy-rich command-log-mode ivy notmuch fzf helm writegood-mode which-key vertico python neotree markdown-mode deadgrep counsel better-defaults))
+   '(todotxt slack olivetti modus-themes vterm elfeed evil company rg helm-fuzzy-find json-mode helpful ivy-rich command-log-mode ivy notmuch fzf helm writegood-mode which-key vertico python neotree markdown-mode deadgrep counsel better-defaults))
  '(warning-suppress-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

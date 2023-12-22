@@ -15,7 +15,7 @@ return {
   },
   config = function()
     require("telekasten").setup({
-      home = vim.fn.expand("~/notes"),
+      home = vim.fn.expand("~/Documents/notes"),
       media_previewer = "catimg-previewer",
       journal_auto_open = true,
     })
