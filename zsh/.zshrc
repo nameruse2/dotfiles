@@ -5,7 +5,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
 # autoload -U compinit; compinit
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 HYPHEN_INSENSITIVE="true" #_ and - will be interchangeable.
 
 zstyle ':omz:update' mode auto  # just remind me to update when it's time
@@ -47,4 +47,4 @@ fi
 
 source $HOME/.config/zsh/zsh-aliases
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
