@@ -17,4 +17,8 @@ INITIAL_QUERY="${*:-}"
     --bind 'enter:become(nvim {1} +{2})'
   }
 alias nf='find Documents/notes | fzf --preview 'bat --color=always {1}''
+
+##########
+# GENERAL
+#########
 alias myip="curl icanhazip.com"

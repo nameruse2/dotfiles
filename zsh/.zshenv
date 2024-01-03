@@ -13,9 +13,9 @@ export HISTFILE="$ZDOTDIR/.zsh_history"
 export HISTSIZE=10000 # Maximum events for internal history
 export SAVEHIST=10000 # Maximum events in history file
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="hx"
+export VISUAL="hx"
 
 # Path to your oh-my-zsh installation.
-export ZSH="$XDG_DATA_HOME/oh-my-zsh"
+export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
 
