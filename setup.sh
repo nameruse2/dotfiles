@@ -32,3 +32,6 @@ ln -sf $PWD/zsh/zsh-aliases $HOME/.config/zsh/zsh-aliases
 ##########
 ln -sf $PWD/.emacs $HOME/.emacs
 #TODO move oh my zsh folder if it exists
+
+# FISH
+ln -sf $PWD/fish $HOME/.config/

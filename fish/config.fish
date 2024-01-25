@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 abbr --add dotdot --regex '^\.\.+$' --function multicd
-abbr --add notes ~/Documents/notes
+abbr --add notes cd ~/Documents/notes
 zoxide init fish | source
 starship init fish | source
 
