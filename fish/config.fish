@@ -10,5 +10,5 @@ abbr --add gs git status
 abbr --add ga git add .
 
 zoxide init fish | source
-starship init fish | source
+# starship init fish | source
 
