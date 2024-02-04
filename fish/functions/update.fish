@@ -1,4 +1,5 @@
 function update -d "update brew, fish, and mac app store"
+    # Description: Update packages and fish completions
     echo 'start updating ...'
 
     echo 'updating homebrew'

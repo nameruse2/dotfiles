@@ -1,4 +1,5 @@
 function cymru -d "take a list of IP's. Run them through team Cymru's lookup"
+    # Description: Take a list of IP's. Run them through team Cymru's lookup
     argparse h/help -- $argv
     or return
 
