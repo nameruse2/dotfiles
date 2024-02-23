@@ -1,16 +1,1 @@
-theme = "catppuccin_mocha"
-
-[editor]
-true-color = true
-color-modes = true
-
-[keys.insert]
-j = { k = "normal_mode" } 
-
-[editor.indent-guides]
-render = true
-character = "|"
-skip-levels = 0
-
-[editor.soft-wrap]
-enable = true
+/Users/dave/dotfiles/helix/.config/config.toml
