@@ -18,12 +18,23 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   { import = 'plugins' },
-  { 'theprimeagen/harpoon' },
+  'theprimeagen/harpoon',
+  'tpope/vim-fugitive',
+  'kdheepak/lazygit.nvim',
+  'lewis6991/gitsigns.nvim',
+  {'nvim-tree/nvim-tree.lua',
+    dependencies = {"nvim-tree/nvim-web-devicons"},
+    keys = {{'<leader>t', "<cmd>NvimTreeToggle<CR>", desc = '[T]ree' }},
+  }
+
+
+
 }, {})
 
 require('options')
 require('keymaps')
 
 
+require('nvim-tree').setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

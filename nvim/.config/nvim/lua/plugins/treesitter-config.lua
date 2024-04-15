@@ -8,13 +8,13 @@ return {
     require('nvim-treesitter.configs').setup {
       ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim', 'markdown', 'org', 'bash' },
       auto_install = true,
-      highlight = { 
+      highlight = {
         enable = true,
         additional_vim_regex_highlighting = {'org'},
       },
-      indent = { 
+      indent = {
         enable = true,
-        disable = { 'python' } 
+        disable = { 'python' }
       },
       incremental_selection = {
         enable = true,
@@ -28,4 +28,3 @@ return {
     }
   end,
 }
-  

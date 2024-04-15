@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = 'Move to right window' })
 
 -- insert --
 -- press jk fast to exit insert mode 
-vim.keymap.set("i", "jk", "<esc>") 
+vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("i", "kj", "<esc>")
 -- navigate buffers
 vim.keymap.set("n", "<s-l>", ":bnext<cr>") -- Next Tab 

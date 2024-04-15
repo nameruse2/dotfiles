@@ -37,6 +37,9 @@ fi
 
 [[ -f ~/.fzf.zsh ]] && source "$HOME/.fzf.zsh"
 
+# This may work for everything?
+# eval "$(fzf --zsh)"
+
 ##########
 # MAC SETTINGS
 ##########

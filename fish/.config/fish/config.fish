@@ -10,6 +10,11 @@ abbr --add dcd docker compose down
 abbr --add gs git status
 abbr --add ga git add .
 
+abbr --add t todo.sh
+abbr --add ta todo.sh add (date '+%Y-%m-%d')
+abbr --add tl todo.sh ls
+
+
 zoxide init fish | source
 # starship init fish | source
 
