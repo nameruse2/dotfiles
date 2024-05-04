@@ -56,6 +56,28 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TEST
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+;; Fix archaic defaults
+(setopt sentence-end-double-space nil)
+
+;; Make right-click do something sensible
+(when (display-graphic-p)
+  (context-menu-mode))
+
+;; active Babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (python . t)
+   (shell . t)
+   (emacs-lisp . t)))
+
+(setq org-babel-python-command "python3")
+
+
 (use-package markdown-mode
   :ensure t
   :mode ("README\\.md\\'" . gfm-mode)
@@ -64,7 +86,10 @@
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
 ;; Example configuration for Consult
-(use-package consult)
+(use-package consult
+  :bind (
+	 ("C-x b" . consult-buffer)
+	 ("C-s" . consult-line)))
 
 
 (use-package corfu
@@ -333,7 +358,7 @@
  '(elfeed-feeds
    '("https://www.ripe.net/news.xml" "https://www.icann.org/en/feed/board_materials" "https://www.icann.org/en/blogs" "https://krebsonsecurity.com/feed/"))
  '(package-selected-packages
-   '(yapfify lsp-pyright pyvenv hide-mode-line dap-mode lsp-ui company lsp-mode jinx avy embark-consult embark restclient request nano-agenda nano-modeline org-super-agenda corfu-terminal corfu-popupinfo vertico-directory deft company-jedi jedi swiper-helm ivy nano-theme lua-mode helm-fuzzy-find langtool consult helm-org helm-org-rifle helm todotxt flycheck-aspell org-modern org-roam magit vterm treemacs mu4easy lsp-docker docker-compose-mode w3m gruvbox-theme ef-themes markdown-mode elfeed pdf-tools doom-themes which-key rainbow-delimiters)))
+   '(evil-org evil fish-mode all-the-icons yapfify lsp-pyright pyvenv hide-mode-line dap-mode lsp-ui company lsp-mode jinx avy embark-consult embark restclient request nano-agenda nano-modeline org-super-agenda corfu-terminal corfu-popupinfo vertico-directory deft company-jedi jedi swiper-helm ivy nano-theme lua-mode helm-fuzzy-find langtool consult helm-org helm-org-rifle helm todotxt flycheck-aspell org-modern org-roam magit vterm treemacs mu4easy lsp-docker docker-compose-mode w3m gruvbox-theme ef-themes markdown-mode elfeed pdf-tools doom-themes which-key rainbow-delimiters)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

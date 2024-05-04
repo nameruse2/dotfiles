@@ -1,5 +1,6 @@
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
+
 # autoload -U compinit; compinit
 ZSH_THEME="robbyrussell"
 
@@ -52,3 +53,5 @@ fi
 source "$HOME/.config/zsh/zsh-aliases"
 eval "$(starship init zsh)"
 
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
