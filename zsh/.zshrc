@@ -1,5 +1,5 @@
 
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:/Users/dave/.local/share/uv/tools:$PATH
 
 # autoload -U compinit; compinit
 ZSH_THEME="robbyrussell"
@@ -55,3 +55,11 @@ eval "$(starship init zsh)"
 
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+
+. "$HOME/.local/share/../bin/env"
