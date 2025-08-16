@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:/Users/dave/.local/share/uv/tools:$PATH
 
 # autoload -U compinit; compinit
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 7 
@@ -22,18 +22,18 @@ source "$ZSH/oh-my-zsh.sh"
 ##########
 # FZF
 ##########
-if [[ -e "/usr/share/doc/fzf/examples/key-bindings.zsh" ]]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-  source /usr/share/doc/fzf/examples/completion.zsh
-elif [[ -e "/data/data/com.termux/files/usr/share/fzf/key-bindings.zsh" ]]; then
-  source /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh
-  source /data/data/com.termux/files/usr/share/fzf/completion.zsh
-fi
+# if [[ -e "/usr/share/doc/fzf/examples/key-bindings.zsh" ]]; then
+#   source /usr/share/doc/fzf/examples/key-bindings.zsh
+#   source /usr/share/doc/fzf/examples/completion.zsh
+# elif [[ -e "/data/data/com.termux/files/usr/share/fzf/key-bindings.zsh" ]]; then
+#   source /data/data/com.termux/files/usr/share/fzf/key-bindings.zsh
+#   source /data/data/com.termux/files/usr/share/fzf/completion.zsh
+# fi
 
-[[ -f ~/.fzf.zsh ]] && source "$HOME/.fzf.zsh"
+# [[ -f ~/.fzf.zsh ]] && source "$HOME/.fzf.zsh"
 
 # This may work for everything?
-# eval "$(fzf --zsh)"
+eval "$(fzf --zsh)"
 
 ##########
 # MAC SETTINGS
@@ -63,3 +63,6 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 . "$HOME/.local/share/../bin/env"
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"

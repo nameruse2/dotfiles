@@ -9,7 +9,6 @@ endif
 
 " Load plugins
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'freitass/todo.txt-vim'
@@ -31,6 +30,9 @@ Plug 'nvie/vim-flake8'
 Plug 'ryanoasis/vim-devicons'
 Plug 'https://github.com/alok/notational-fzf-vim'
 Plug 'liuchengxu/vim-which-key'
+Plug 'davidhalter/jedi-vim'
+Plug 'dense-analysis/ale'
+
 call plug#end()
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
@@ -39,6 +41,25 @@ set timeoutlen=500
 let g:which_key_map =  {}
 let g:which_key_map.c = { 'name' : '+commenter' }
 
+" Enable Jedi
+let g:jedi#completions_enabled = 1
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#show_call_signatures = "2"
+let g:jedi#popup_on_dot = 1
+autocmd FileType python setlocal omnifunc=jedi#completions#omni
+
+
+" ALE settings (for linting and fixing)
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+let g:ale_fixers = {
+\   'python': ['black'],
+\}
+let g:ale_python_flake8_executable = 'flake8'
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
 
 " Load some standard configs.
 set encoding=UTF-8

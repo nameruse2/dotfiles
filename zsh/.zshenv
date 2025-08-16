@@ -6,7 +6,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+# export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # History filepath
 export HISTFILE="$ZDOTDIR/.zsh_history"
@@ -17,5 +17,5 @@ export EDITOR="hx"
 export VISUAL="hx"
 
 # Path to your oh-my-zsh installation.
-export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
+# export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh"
 
