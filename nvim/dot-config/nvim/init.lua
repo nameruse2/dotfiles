@@ -1,40 +1,21 @@
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- ~/.config/nvim/init.lua
 
--- Install package manager
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
-end
-vim.opt.rtp:prepend(lazypath)
+require('options') -- Basic options
+require('plugins') -- Plugins - downloads and configs
+require('keymaps') -- All keymaps here
 
-require('lazy').setup({
-  { import = 'plugins' },
-  'theprimeagen/harpoon',
-  'tpope/vim-fugitive',
-  'kdheepak/lazygit.nvim',
-  'lewis6991/gitsigns.nvim',
-  {'nvim-tree/nvim-tree.lua',
-    dependencies = {"nvim-tree/nvim-web-devicons"},
-    keys = {{'<leader>t', "<cmd>NvimTreeToggle<CR>", desc = '[T]ree' }},
-  }
+vim.cmd('colorscheme tokyonight') -- Colourscheme goes here. Needs to be loaded after plugins
 
 
+vim.lsp.enable({
+    'basedpyright', -- ~/.config/nvim/lsp/basedpyright.lua
+    'lua_ls', -- ~/.config/nvim/lsp/lua-ls.lua
+    'fish_lsp',
+    'jsonlsp',
+    'markdown_oxide', -- config at ~/.config/moxide/settings.toml
+})
 
-}, {})
-
-require('options')
-require('keymaps')
-
-
-require('nvim-tree').setup()
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+vim.diagnostic.config({ virtual_text = true })
+-- https://neovim.io/doc/user/lsp.html
+-- vonheikemen.github.io/learn-nvim/feature/lsp-setup.html
+--

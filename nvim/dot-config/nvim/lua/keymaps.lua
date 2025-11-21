@@ -1,46 +1,44 @@
+local vim = vim
+local keymap = vim.keymap.set
 -- [[ Basic Keymaps ]]
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+keymap('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlights on search when pressing <Esc> in normal mode
+keymap('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open [d]iagnostic quickfix list' })
+keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- Keybinds to make split navigation easier.
+--  Use CTRL+<hjkl> to switch between windows
+keymap('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = 'Move to left window' })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = 'Move up a window' })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = 'Move down a window' })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = 'Move to right window' })
 
--- insert --
--- press jk fast to exit insert mode 
-vim.keymap.set("i", "jk", "<esc>")
-vim.keymap.set("i", "kj", "<esc>")
--- navigate buffers
-vim.keymap.set("n", "<s-l>", ":bnext<cr>") -- Next Tab 
-vim.keymap.set("n", "<s-h>", ":bprevious<cr>") -- Previous tab
--- Resize with arrows when using multiple windows
-vim.keymap.set("n", "<C-Up>", ":resize -2<CR>")
-vim.keymap.set("n", "<c-down>", ":resize +2<cr>")
-vim.keymap.set("n", "<c-right>", ":vertical resize -2<cr>")
-vim.keymap.set("n", "<c-left>", ":vertical resize +2<cr>")
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
+-- Toggle location list showing lsp diagnostics
+keymap("n", "<leader>z", function()
+	local loclist_win = vim.fn.getloclist(0, { winid = 0 }).winid
+	if loclist_win > 0 then
+		vim.cmd("lclose")
+	else
+		vim.diagnostic.setloclist({ open = true })
+	end
+end)
 
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "files"})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "grep"})
-vim.keymap.set('n', '<leader>b', builtin.buffers, {desc = "Buffers"})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "help"})
-vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {desc = "recent"})
+keymap('i', 'jk', '<ESC>', {desc='Normal mode'}) -- Easier to use with home keys
+keymap('i', 'kj', '<ESC>', {desc='Normal mode'}) -- Easier to use with home keys
+
+keymap('n', 'H', '0', {desc='Goto start of line'}) -- Easier to use with home keys
+keymap('n', 'L', '$', {desc='Goto end of line'}) -- Easier to use with home keys
+
+
+keymap('n', '<leader>/', '<cmd>FzfLua live_grep<cr>', {desc='Search file'})
+keymap('n', '<leader>e', '<cmd>Lexplore<cr>', {desc='File Explorer'})
+keymap('n', '<leader>f', '<cmd>FzfLua files<cr>', {desc='Find file'})
+keymap('n', '<leader>b', '<cmd>FzfLua buffers<cr>', {desc='Buffers'})
+keymap('n', '<leader>r', '<cmd>FzfLua registers<cr>', {desc='Registers'})
+keymap('n', '<leader>z', '<cmd>FzfLua zoxide<cr>', {desc='Zoxide (cd)'})
+keymap('n', '<leader>n', '<cmd>FzfLua files cwd=~/Documents/notes/<cr>', {desc='Notes'})
+keymap('n', '<leader>q', '<cmd>q<cr>', {desc='Quit'})
+keymap('n', '<leader>w', '<cmd>w<cr>', {desc='Write'})
+
+
