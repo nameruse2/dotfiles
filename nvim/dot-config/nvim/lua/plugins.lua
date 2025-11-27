@@ -27,7 +27,6 @@ require('mini.files').setup()
 require('mini.surround').setup()
 require('mini.extra').setup()
 require('mini.jump').setup()
-
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "python", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
   sync_install = false,

@@ -37,8 +37,9 @@ keymap('n', '<leader>f', '<cmd>FzfLua files<cr>', {desc='Find file'})
 keymap('n', '<leader>b', '<cmd>FzfLua buffers<cr>', {desc='Buffers'})
 keymap('n', '<leader>r', '<cmd>FzfLua registers<cr>', {desc='Registers'})
 keymap('n', '<leader>z', '<cmd>FzfLua zoxide<cr>', {desc='Zoxide (cd)'})
-keymap('n', '<leader>n', '<cmd>FzfLua files cwd=~/Documents/notes/<cr>', {desc='Notes'})
+-- keymap('n', '<leader>n', '<cmd>FzfLua files cwd=~/Documents/notes/<cr>', {desc='Notes'})
 keymap('n', '<leader>q', '<cmd>q<cr>', {desc='Quit'})
 keymap('n', '<leader>w', '<cmd>w<cr>', {desc='Write'})
 
-
+--Notes
+-- keymap('n', '<leader>nd', '<cmd>lua require('notes').open_daily_note()<CR>', {desc = 'Daily Note' })

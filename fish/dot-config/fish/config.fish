@@ -4,9 +4,10 @@ if status is-interactive
 end
 
 set fish_greeting ""
+set -gx EDITOR nvim
 
-fish_add_path -g /Users/dave/.cargo/bin
-fish_add_path -g /Users/dave/go/bin
+fish_add_path -g ~/.cargo/bin
+fish_add_path -g ~/go/bin
 fish_add_path -g /Users/dave/bin/dinner_spinner
 fish_add_path -g /Users/dave/Library/Python/3.11/bin
 fish_add_path -g /Users/dave/.fzf/bin

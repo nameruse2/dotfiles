@@ -1,16 +1,29 @@
-theme = "catppuccin_mocha"
+
+theme = "tokyonight"
 
 [editor]
 true-color = true
 color-modes = true
 line-number = "relative"
+cursorline = true
 
 [keys.normal]
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 
+# open Yazi with ctrl+y
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
+
 [keys.insert]
 j = { k = "normal_mode" } 
+k = { j = "normal_mode" } 
 
 [editor.indent-guides]
 render = true
