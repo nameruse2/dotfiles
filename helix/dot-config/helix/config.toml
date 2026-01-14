@@ -6,10 +6,16 @@ true-color = true
 color-modes = true
 line-number = "relative"
 cursorline = true
+bufferline = "multiple"
+
 
 [keys.normal]
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+[keys.normal.space]
+i = ":toggle lsp.display-inlay-hints"
+
 
 # open Yazi with ctrl+y
 C-y = [
@@ -35,4 +41,4 @@ enable = true
 
 [editor.lsp]
 display-messages = true
-display-inlay-hints = true
+display-inlay-hints = false

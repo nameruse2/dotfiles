@@ -9,6 +9,7 @@ vim.cmd('colorscheme tokyonight') -- Colourscheme goes here. Needs to be loaded 
 
 vim.lsp.enable({
     'basedpyright', -- ~/.config/nvim/lsp/basedpyright.lua
+    -- 'ty',
     'lua_ls', -- ~/.config/nvim/lsp/lua-ls.lua
     'fish_lsp',
     'jsonlsp',

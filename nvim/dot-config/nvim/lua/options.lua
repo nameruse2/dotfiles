@@ -16,7 +16,7 @@ o.shiftwidth = 4 --spaces for indentation
 o.softtabstop = 4
 o.expandtab = true -- Tabs to spaces
 o.list = true -- show trailing characters
-o.backspace = "indent,eol,start"
+o.backspace = 'indent,eol,start'
 o.completeopt = 'menu,menuone,noinsert'
 o.breakindent = true -- keep wrapped lines indented
 o.undofile = true -- Save undo history
@@ -34,5 +34,3 @@ o.foldmethod = "indent"
 o.foldlevelstart = 99
 -- vim.o.grepprg = "rg --vimgrep --smart-case --hidden"
 -- vim.o.grepformat = "%f:%l:%c:%m"
-
-
