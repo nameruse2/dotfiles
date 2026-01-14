@@ -3,8 +3,13 @@ local keymap = vim.keymap.set
 -- [[ Basic Keymaps ]]
 
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlights on search when pressing <Esc> in normal mode
-keymap('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open [d]iagnostic quickfix list' })
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+keymap('i', 'jk', '<ESC>', {desc='Normal mode'}) -- Easier to use with home keys
+keymap('i', 'kj', '<ESC>', {desc='Normal mode'}) -- Easier to use with home keys
+
+keymap('n', 'H', '0', {desc='Goto start of line'}) -- Easier to use with home keys
+keymap('n', 'L', '$', {desc='Goto end of line'}) -- Easier to use with home keys
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -13,26 +18,11 @@ keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-
--- Toggle location list showing lsp diagnostics
-keymap("n", "<leader>z", function()
-	local loclist_win = vim.fn.getloclist(0, { winid = 0 }).winid
-	if loclist_win > 0 then
-		vim.cmd("lclose")
-	else
-		vim.diagnostic.setloclist({ open = true })
-	end
-end)
-
-keymap('i', 'jk', '<ESC>', {desc='Normal mode'}) -- Easier to use with home keys
-keymap('i', 'kj', '<ESC>', {desc='Normal mode'}) -- Easier to use with home keys
-
-keymap('n', 'H', '0', {desc='Goto start of line'}) -- Easier to use with home keys
-keymap('n', 'L', '$', {desc='Goto end of line'}) -- Easier to use with home keys
-
-
+-- leader keys
 keymap('n', '<leader>/', '<cmd>FzfLua live_grep<cr>', {desc='Search file'})
 keymap('n', '<leader>e', '<cmd>Lexplore<cr>', {desc='File Explorer'})
+keymap('n', '<leader>d', '<cmd>FzfLua diagnostics_document<cr>', { desc = 'Diagnostics' })
+keymap('n', '<leader>s', '<cmd>FzfLua lsp_document_symbols<cr>', { desc = 'LSP Symbols' })
 keymap('n', '<leader>f', '<cmd>FzfLua files<cr>', {desc='Find file'})
 keymap('n', '<leader>b', '<cmd>FzfLua buffers<cr>', {desc='Buffers'})
 keymap('n', '<leader>r', '<cmd>FzfLua registers<cr>', {desc='Registers'})

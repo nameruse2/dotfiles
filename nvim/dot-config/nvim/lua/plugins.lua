@@ -18,7 +18,6 @@ add('nvim-treesitter/nvim-treesitter')
 
 require("fzf-lua").setup()
 require("mason").setup({})
-require('mini.pick').setup({})
 require('mini.completion').setup()
 require('mini.icons').setup()
 require('mini.indentscope').setup()
@@ -71,7 +70,7 @@ miniclue.setup({
     { mode = 'n', keys = 'm' },
     { mode = 'n', keys = 's' },
   },
-  postkeys_window_delay = 10,
+  postkeys_window_delay = 0,
   clues = {
     -- Enhance this by adding descriptions for <Leader> mapping groups
     miniclue.gen_clues.builtin_completion(),
